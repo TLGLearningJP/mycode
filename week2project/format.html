@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        background-color: rgb(59, 76, 202);
+        text-align: center;
+        color: black;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Here's that Pokemon!</h1>
+    <h2>Please enter a number between 1 and 1000</h2>
+    <form action="{{ url_for('pkmn_user_input') }}" method="GET">
+      <label for="pkmn_user_input">Enter Pokemon Number:</label>
+      <input type="text" id="api_endpoint" name="pkmn_user_input" required />
+      <button type="submit">Submit</button>
+    </form>
+    <ul>
+      {% for pkmn in pokemon %}
+      <li><a href="/pokemon/{{ pkmn }}">{{ pkmn }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+
